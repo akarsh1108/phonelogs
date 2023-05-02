@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ContactCard from './ContactCard';
 import './styles.css';
+import mWaySearchTree from './Algorithms/mWaySearchTree';
 const ContactList = ({ contacts, deleteContact, setEditIndex }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredContacts, setFilteredContacts] = useState(contacts);
@@ -8,12 +9,14 @@ const ContactList = ({ contacts, deleteContact, setEditIndex }) => {
   const [recognition, setRecognition] = useState(null);
 
   useEffect(() => {
+   
     const timerId = setTimeout(() => {
       const filteredContacts = contacts.filter(
         (contact) =>
           contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
           contact.phone.toLowerCase().includes(searchQuery.toLowerCase())
       );
+      mWaySearchTree(filteredContacts);
       setFilteredContacts(filteredContacts);
     }, 500);
 
