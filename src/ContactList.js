@@ -10,7 +10,8 @@ const ContactList = ({ contacts, deleteContact, setEditIndex }) => {
 
   useEffect(() => {
    
-    const timerId = setTimeout(() => {
+    const timerId = setTimeout(() => {   
+      
       const filteredContacts = contacts.filter(
         (contact) =>
           contact.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
